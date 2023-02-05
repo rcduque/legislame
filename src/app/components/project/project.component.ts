@@ -12,8 +12,7 @@ export class ProjectComponent {
 
   billTitle:string="";
 
-  constructor(){
-    
+  constructor(){    
   }
 
   addBill(){
@@ -26,6 +25,10 @@ export class ProjectComponent {
 
     this.bills.push(bill);
     this.billTitle ="";
+  }
+
+  addVote(index:number){
+    this.bills[index].votes = this.bills[index].votes + 1;
   }
 
 }
