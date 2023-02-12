@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Bill } from 'src/app/model/Bill';
+import { BillService } from 'src/app/services/bill.service';
 
 @Component({
   selector: 'app-project',
@@ -8,11 +9,15 @@ import { Bill } from 'src/app/model/Bill';
 })
 export class ProjectComponent {
 
+  @Output() searchParameters = new EventEmitter<any>();
   bills:Bill[] = [];
-
   billTitle:string="";
 
   constructor(){    
+  }
+
+  searchBill(){
+    this.searchParameters.emit(this.billTitle);
   }
 
   addBill(){
